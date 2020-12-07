@@ -1,0 +1,72 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288);
+    height: 100%;
+    
+    margin-left: 400px;
+    margin-right: 400px;
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.btn-change-name, .btn-change-password,.btn-connecting, .btn-set-password, btn-logout{
+    border: none;
+    height: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(203, 231, 255);
+    border-radius: 8px;
+}
+
+
+.container-user-tools{
+    margin-top:30px;
+    margin-left:30px;
+
+}
+
+#username{
+    border:3px;
+}
+
+.unique-code-user{
+    padding-top: 25px;
+    font-size: 20px;
+}
+.code{
+    padding-top: 10px;
+    font-size: 25px;
+}
+.container-user-info{
+    text-align: center;
+}
+.username{
+    
+    padding-top: 20px;
+    font-size: 40px;
+}
+@media(max-width : 1104px){
+  .main{
+    margin-left:200px;
+    margin-right:200px;
+  }
+}
+@media(max-width : 768px){
+    .main{
+        margin-left: 50px;
+        margin-right:50px;
+    }
+
+}
+@media(max-width : 320px){
+  .main{
+        margin-left: 0px;
+        margin-right:0px;
+  }
+}
