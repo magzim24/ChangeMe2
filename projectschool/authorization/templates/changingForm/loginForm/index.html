@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+	{% load static %}
+	<link href="{% static 'loginForm/login.css' %}" rel='stylesheet'/>
+</head>
+<body>
+{csrf_token}
+	<form action="login" method="post">
+		{% csrf_token %}
+		<div class="form">
+			<h1>Вход</h1>
+			<div class="login">
+				<b>
+					<h3>Логин</h3>
+				</b>
+			</div>
+			<div class="input-form">
+				<input type="text" id ="username" name="username" maxlength="255">
+			</div>
+			<div class = 'password'>
+				<b>
+					<h3>Пароль</h3>
+				</b>
+			</div>
+
+			<div class="input-form">
+				<input type="password" id = "password" name="password" maxlength="255">
+			</div>
+
+			<div class="input-form">
+				<input type="submit" value="Войти">
+			</div>
+
+		<a href="{% url '/register' %}" class = "register">Зарегистрироваться!</a>
+		<a href="{% url '' %}" class="forget">Забыли пароль?</a>
+
+
+		</div>
+	</form>
+</body>
+</html>
