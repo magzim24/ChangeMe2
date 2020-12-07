@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+}
+#horizont-line-sending-files{
+    width:90%;
+}
+button, #file_input, #button-send-file{
+    cursor:pointer;
+}
+#file_input{
+    margin-top:30px;
+    margin-left:10%;
+    margin-bottom:15px;
+    margin-right:15px;
+}
+.code_user{
+    text-align:right;
+    margin-right:10%;
+}
+.container-exit-button div{
+    text-align:right;
+}
+.exit-button{
+    margin-bottom:15px;
+    margin-right:5px;
+}
+.main{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.288);
+    height: 100%;
+    margin-top: 0%;
+    margin-left: 400px;
+    margin-right: 400px;
+    background-color: rgb(255, 255, 255);
+}
+.main-myButton{
+    position:absolute;
+    font-size:20px;
+    border:none;
+    background:white;
+}
+.wrap-myMenu{
+    float:right;
+}
+.preview{
+    color:#FFD767;
+}
+a{
+    text-decoration: none;
+}
+ul{
+  display: none;
+  }
+.list {padding-bottom:10px;}
+.name-file{
+    text-align:center;
+    font-family: 'Source Sans Pro', sans-serif;
+    width:100px;
+    word-break:break-all;
+}
+#warning-about-files{
+    text-align:center;
+
+}
+#warning-about-files h2{
+    margin-bottom:20px;
+}
+.request-info-button {
+    height:100px;
+    width:100px;
+    font-size:80px;
+    color:#FFD767;
+    background-color:white;
+    border-radius:10px;
+    border:None;
+}
+
+.file{
+    display:inline-block;
+    padding-left:20px;
+    padding-bottom:20px;
+
+    vertical-align:top;
+}
+.container-guest-files{
+    margin:20px;
+}
+.button-sending-files{
+    margin-left:20px;
+}
+
+
+@media(max-width : 1104px){
+  .main{
+    margin-left:200px;
+    margin-right:200px;
+  }
+}
+@media(max-width : 768px){
+    .main{
+        margin-left: 50px;
+        margin-right:50px;
+    }
+
+}
+@media(max-width : 320px){
+  .main{
+        margin-left: 0px;
+        margin-right:0px;
+  }
+}
