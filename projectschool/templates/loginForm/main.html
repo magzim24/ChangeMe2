@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" >
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel = "stylesheet" href = "static/loginForm/project.css">
+    {% load static %}
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+</head>
+<body>
+
+    {% csrf_token %}
+    <div class = "main">
+        <div class = "container-user-info">
+            <div class = username>
+                <div>
+                    <header>
+                        {{username.first_name}} {{username.last_name}}</header>
+                    <form id="form_changing"  action="" method = "post" onsubmit="inputDisabledOn()">
+                        {% csrf_token %}
+
+                        <input name = "username" id = "username">
+                        <button type="submit" name="save" id = "save" disabled onsubmit="inputDisabledOn()"><i class="fas fa-save" ></i></button>
+
+                    </form>
+                    
+                </div>
+                
+            </div>
+            <div class = "unique-code-user">
+                Ваш код для подключения:<br>
+                <div class = "code">
+                    {{ code }}
+                </div>
+            </div>
+        </div>
+        <div class = "container-user-tools">
+            <div class = "change-password">
+                <button type="submit" class = "btn-change-password" name="password" onclick="inputDisabledOff('password')">Изменить пароль</button>
+            </div>
+            <div class = "change-name">
+                <button class = "btn-change-name" onclick="inputDisabledOff('username')">Изменить имя</button>
+            </div>
+            <div class = "container-user-connecting">
+                <button class = "btn-connecting"  onclick="inputDisabledOff('connecting_key')">Подключиться</button>
+            </div>
+            <div class = "container-set-password">
+                <button class = "btn-set-password"  onclick="inputDisabledOff('set_password_session')">Создать комнату</button>
+            </div>
+            <div class = "container-logout">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="logout" id="logout" value="logout" />
+                    <input class = "btn-logout" id="btn-logout" type="submit" name="btn-logout" value="Выйти из аккаунта">
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+        function inputDisabledOn(){
+            	document.getElementById("username").style.border = "None";
+            	document.getElementById("save").setAttribute("disabled","true");
+
+
+        }
+        function inputDisabledOff(name_func){
+            document.getElementById("username").style.border = "1px";
+            document.getElementById("save").removeAttribute("disabled");
+            document.getElementById("username").setAttribute("name",name_func);
+        }
+</script>
+</body>
+
+</html>

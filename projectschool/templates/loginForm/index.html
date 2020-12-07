@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+	{% load static %}
+	<link  href= "{% static '/loginForm/login.css' %}" rel = 'stylesheet'/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+</head>
+<body>
+
+<div class="form">
+<form action="login" method="post">
+		{% csrf_token %}
+
+
+			<h1>Вход</h1>
+
+			<div class="login">
+				<b>
+					<h3>Логин</h3>
+				</b>
+			</div>
+			<div class="input-form">
+				<input name="username" id = "username" type="text" maxlength="255">
+			</div>
+			<div class = 'password'>
+				<b>
+					<h3>Пароль</h3>
+				</b>
+			</div>
+
+			<div class="input-form">
+				<input type="password" id="password" name="password" maxlength="255">
+			</div>
+
+			<div class="input-form">
+				<input type="submit" value="Войти">
+			</div>
+</form>
+<div class="container-links">
+	<a href="/accounts/register" class = "register">Зарегистрироваться!</a>
+	<a href= "/password_reset/" class="forget">Забыли пароль?</a>
+	<form action="{% url 'social:begin' 'facebook' %}">
+		{% csrf_token %}
+		<button type="submit" class="button-facebook-auth"><i class="fab fa-facebook"></i></button>
+	</form>
+	<form action="{% url 'social:begin' 'vk-oauth2' %}">
+		{% csrf_token %}
+		<button type="submit" class="button-vk-auth"><i class="fab fa-vk"></i></button>
+	</form>
+
+</div>
+</div>
+
+
+
+</body>
+</html>

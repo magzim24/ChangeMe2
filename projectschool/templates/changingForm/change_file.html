@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru" >
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+  <link rel = "stylesheet" href = "{% static "loginForm/change_file.css" %}">
+
+  <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<script>
+function slideMenu(id) {
+    $('.content_'+id).slideToggle();
+
+};
+
+</script>
+
+</head>
+
+<body>
+
+    {% csrf_token %}
+    <div class = "main">
+        <div class="container-sending-file">
+            <div class="button-sending-files">
+                <form action="" enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <input type="file"  multiple id="file_input" name="file_input"/>
+                    <input type="submit" id="button-send-file" name="button-send-file" value="Отправить"/>
+
+                    {% if code  %}
+                        <label class="code_user">Ваш код подключения: {{code}}</label>
+                    {% endif %}
+                </form>
+            </div>
+        <hr id="horizont-line-sending-files">
+        </div>
+        <div class="container-guest-files">
+            <div>
+                <h2 id="warning-about-files">Здесь будут показаны присланные файлы</h2>
+            </div>
+            <div class="files-list">
+                <div class="container-list-files">
+                    {% for key, value in data.items %}
+                        <div class="file">
+                            <form method="post" action="">
+                                {% csrf_token %}
+                                <input type="hidden" name="downloading_file" value="{{value.id_room}}/{{ value.uuid_filename }}">
+                                <button class="request-info-button"  type="submit"><i class="fas fa-file"></i></button><!--<a class="preview" href="/users_files/{{value.id_room}}/{{value.uuid_filename}}{{value.file_extension}}"></a>-->
+                                <nav class="wrap-myMenu" >
+                                    <button class="main-myButton" onclick="slideMenu(this.id)" id="{{value.uuid_filename}}" type="button"><i class="fas fa-ellipsis-v"></i></button>
+                                    <ul class="content_{{value.uuid_filename}}">
+                                      <div class = "list"><button type="button"><a href="/users_files/{{value.id_room}}/{{value.uuid_filename}}{{value.file_extension}}" download>Скачать</a></button></div>
+                                      <div class = "list"><button type="button">Подробности</button></div>
+                                    </ul>
+                                </nav>
+                                <div class="name-file">{{key}}</div>
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="container-exit-button">
+                <div><form action="" method="post">{% csrf_token %}<button class="exit-button" name="exit-button" value="exit">Выйти</button></form></div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
